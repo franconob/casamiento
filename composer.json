@@ -1,0 +1,19 @@
+{
+    "name": "franconob/casamiento",
+    "description": "Casmiento",
+    "type": "project",
+    "require": {
+        "silex/silex": "~2.0",
+        "twig/twig": "^1.27",
+        "swiftmailer/swiftmailer": "^5.4",
+        "symfony/asset": "^3.1",
+        "symfony/twig-bridge": "^3.1"
+    },
+    "authors": [
+        {
+            "name": "Franco Herrero",
+            "email": "franconob.pr@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
