@@ -372,7 +372,7 @@ label {
 /* ======= Hero Section ======= */
 .hero-section {
   margin-top: 55px;
-  background: #262220 url('../images/sesion/portada.png') no-repeat 50% top;
+  background: #262220 url('../images/sesion/portada.jpg') no-repeat 50% top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -548,7 +548,7 @@ label {
 }
 /* ======= Story Section ======= */
 .story-section {
-  background: #413a38 url('../images/sesion/historia.png') no-repeat 50% top;
+  background: #413a38 url('../images/sesion/historia.jpg') no-repeat 50% top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -988,7 +988,8 @@ label {
     background-size: contain;
   }
   .hero-section {
-    background-position: 70% 50%;
+    background: #262220 url('../images/sesion/portada-small.jpg') no-repeat 50% top;
+    background-position: 70% 10%;
     height: auto;
   }
   .headline .names {
@@ -998,6 +999,7 @@ label {
     height: 100%;
     padding-left: 15px;
     padding-right: 15px;
+    background: rgba(0, 0, 0, 0.3)
   }
   .hero-box .date {
     font-size: 18px;
@@ -1006,7 +1008,7 @@ label {
     -o-background-size: contain;
     background-size: contain;
     height: 100px;
-    padding-top: 10px;
+    padding-top: 5px;
   }
   .headline .statement-text {
     font-size: 32px;
