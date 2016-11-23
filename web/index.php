@@ -7,7 +7,14 @@ use Symfony\Component\HttpFoundation\Response;
 require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Silex\Application();
-$app['debug'] = true;
+
+$app->register(new Silex\Provider\HttpCacheServiceProvider(), array(
+    'http_cache.cache_dir' => __DIR__.'/cache/',
+));
+
+Request::setTrustedProxies(array('127.0.0.1', '::1'));
+
+$app['debug'] = false;
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
@@ -35,8 +42,12 @@ $app['swiftmailer.options'] = array(
     'auth_mode' => 'login'
 );
 
-$app->get('/', function () use ($app) {
-    return $app['twig']->render('homepage.html.twig');
+$app->get('/', function (Request $request) use ($app) {
+    $response = new Response($app['twig']->render('homepage.html.twig'));
+    $response->setSharedMaxAge(30);
+    $r = $response->isNotModified($request);
+
+    return $response;
 });
 
 $app->post('/confirmar', function(Request $request) use ($app) {
@@ -58,4 +69,9 @@ $app->post('/confirmar', function(Request $request) use ($app) {
     return new Response('Gracias por confirmar la asistencia!');
 });
 
-$app->run();
+if($app['debug']) {
+    $app->run();
+} else {
+    $app['http_cache']->run();
+}
+
