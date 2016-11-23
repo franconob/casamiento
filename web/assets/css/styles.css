@@ -745,6 +745,7 @@ label {
 }
 .couple-profile {
   position: absolute;
+  margin-bottom: -200px;
   left: 50%;
   margin-left: -163px;
   width: 326px;
