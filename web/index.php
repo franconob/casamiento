@@ -14,7 +14,7 @@ $app->register(new Silex\Provider\HttpCacheServiceProvider(), array(
 
 Request::setTrustedProxies(array('127.0.0.1', '::1'));
 
-$app['debug'] = true;
+$app['debug'] = false;
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
