@@ -44,7 +44,7 @@ $app['swiftmailer.options'] = array(
 
 $app->get('/', function (Request $request) use ($app) {
     $response = new Response($app['twig']->render('homepage.html.twig'));
-    $response->setSharedMaxAge(30);
+    $response->setSharedMaxAge(3600);
     $r = $response->isNotModified($request);
 
     return $response;
